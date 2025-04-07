@@ -1,0 +1,254 @@
+/* Root variables for consistent theming */
+:root {
+  --main-text-color: #242424;
+  --accent-color: #828282;
+  font-family: 'InputMonoNarrow-Thin', sans-serif;
+  line-height: 1.5;
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@font-face {
+  font-family: InputMonoNarrow-Thin;
+  src: url(/assets/fonts/InputMonoNarrow-Thin.ttf);
+}
+
+@font-face {
+  font-family: InputMonoNarrow-Regular;
+  src: url(/assets/fonts/InputMonoNarrow-Regular.ttf);
+}
+
+/* Gallery layout */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+h1 {
+  font-family: 'InputMonoNarrow-Regular', sans-serif;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 2rem auto;
+}
+
+a {
+  font-family: 'InputMonoNarrow-Regular', sans-serif;
+  text-decoration: dashed;
+  color: var(--main-text-color);
+}
+
+p {
+  font-family: 'InputMonoNarrow-Thin', sans-serif;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.filters {
+  margin: 0 1rem;
+}
+
+/* Movie card styles */
+.movie {
+  width: 300px;
+  margin: 20px;
+  background-color: white;
+  box-shadow: 0 0 5px var(--accent-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.movie img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 15px;
+}
+
+.movie-info p {
+  margin: 5px 0;
+}
+
+/* Button styles */
+button {
+  font-family: 'InputMonoNarrow-Regular', sans-serif;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 2px solid var(--main-text-color);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: var(--main-text-color);
+  color: white;
+}
+
+/* Filter styles */
+.filters {
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px;
+}
+
+/* Dropdown styles */
+.custom-dropdown {
+  position: relative;
+  width: 220px;
+  padding: 0 10px;
+  font-family: 'InputMonoNarrow-Thin', sans-serif;
+}
+
+.dropdown-header {
+  padding: 4px;
+  font-size: 1rem;
+  background-color: white;
+  border: 1px solid var(--accent-color);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.dropdown-header::after {
+  content: '\25BC';
+  float: right;
+  font-size: 1rem;
+}
+
+input[type='text' i] {
+  font-family: 'InputMonoNarrow-Thin', sans-serif;
+  font-size: 1rem;
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid var(--main-text-color);
+  border-top: none;
+  border-radius: 0 0 2px 2px;
+  z-index: 1;
+  top: 100%;
+}
+
+.dropdown-list.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: var(--accent-color);
+  color: white
+}
+
+.dropdown-item.selected {
+  background-color: var(--main-text-color);
+  color: white;
+}
+
+/* Selected filter styles */
+.selected-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.selected-filter {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.selected-filter .remove {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/* Keyword cloud styles */
+.keyword-cloud-container {
+  margin-top: 20px;
+}
+
+.keyword-cloud-toggle {
+  cursor: pointer;
+  user-select: none;
+  color: var(--main-text-color);
+}
+
+.toggle-arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+  color: var(--main-text-color);
+  font-size: 0.9rem;
+}
+
+.keyword-cloud-toggle.active .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+.keyword-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.keyword-cloud.hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.keyword {
+  padding: 5px 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.keyword:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.keyword.selected {
+  background-color: var(--accent-color);
+  color: white
+}
